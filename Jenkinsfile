@@ -42,7 +42,7 @@ pipeline {
             //sh "./hello"
             //sh "cat hello.go"
             echo 'Contents of workspace directory:'
-            pwd
+            pwd()
             sh "ls -lha"
             //sh "pwd && ls -lha"
             echo 'Build hello.go'
@@ -59,7 +59,7 @@ pipeline {
     stage('Build Docker image') {
         steps{
             echo 'Building Docker image'
-            pwd
+            pwd()
         }
     }
 
