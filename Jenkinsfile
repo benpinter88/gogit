@@ -42,9 +42,9 @@ pipeline {
             //sh "./hello"
             //sh "cat hello.go"
             echo 'Contents of workspace directory:'
-            pwd()
-            sh "ls -lha"
-            //sh "pwd && ls -lha"
+            //pwd()
+            //sh "ls -lha"
+            sh "pwd && ls -lha"
             echo 'Build hello.go'
             sh "go build hello.go"
             echo 'Running compiled executable:'
@@ -59,7 +59,11 @@ pipeline {
     stage('Build Docker image') {
         steps{
             echo 'Building Docker image'
-            pwd()
+            //pwd()
+            sh "pwd"
+            sh "touch Dockerfile"
+            sh "echo "FROM alpine COPY hello /var/hello CMD /var/hello > /var/hello.txt && HELLO=$(cat /var/hello.txt) && echo $HELLO"" > Dockerfile
+            sh "cat Dockerfile"
         }
     }
 
