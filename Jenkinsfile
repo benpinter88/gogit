@@ -54,6 +54,12 @@ pipeline {
         }
         
     }
+    stage('Build Docker image') {
+        steps{
+            echo 'Building Docker image'
+            sh "pwd"
+        }
+    }
 
   }
 }
