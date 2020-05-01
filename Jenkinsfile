@@ -68,6 +68,10 @@ pipeline {
 	
         }
     }
-
+    stage('Run Docker image'){
+		steps{
+		sh label: '', script: 'sudo docker run --rm benpinter88/hellotest'
+		}
+	}
   }
 }
