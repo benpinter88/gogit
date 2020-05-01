@@ -62,8 +62,9 @@ pipeline {
             //pwd()
             sh "pwd"
             sh "touch Dockerfile"
-            sh "echo FROM alpine COPY hello /var/hello CMD /var/hello > /var/hello.txt && HELLO=$(cat /var/hello.txt) && echo $HELLO > Dockerfile"
+            sh "echo -e 'FROM alpine COPY hello /var/hello CMD /var/hello > /var/hello.txt && HELLO=$(cat /var/hello.txt) && echo $HELLO' >> Dockerfile"
             sh "cat Dockerfile"
+	
         }
     }
 
